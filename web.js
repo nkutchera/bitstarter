@@ -3,9 +3,9 @@ var express = require('express');
 var app = express.createServer(express.logger());
 var fileContents = "";
 var fs = require('fs');
-var infile = "index.html"
+var infile = "index.html";
 
-fs.readFile(infile, function (err, data) {
+fs.readFileSync(infile, function (err, data) {
   if (err) throw err;
   // console.log(data);
   fileContents = data;
