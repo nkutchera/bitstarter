@@ -2,8 +2,10 @@ var express = require('express');
 
 var app = express.createServer(express.logger());
 var fileContents = "";
+var fs = require('fs');
+var infile = "index.html"
 
-fs.readFile('index.html', function (err, data) {
+fs.readFile(infile, function (err, data) {
   if (err) throw err;
   // console.log(data);
   fileContents = data;
@@ -11,7 +13,7 @@ fs.readFile('index.html', function (err, data) {
 
 app.get('/', function(request, response) {
   // response.send('Hello World 2!');
-  response.sent(fileContents);
+  response.send(fileContents);
 });
 
 var port = process.env.PORT || 5000;
